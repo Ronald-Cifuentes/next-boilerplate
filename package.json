@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "prettier": "node_modules/.bin/prettier -w \"**/*.{ts,tsx}\"",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -20,6 +22,7 @@
   "devDependencies": {
     "@types/node": "18.11.13",
     "@types/react": "18.0.26",
+    "prettier": "2.8.1",
     "typescript": "4.9.4"
   }
 }
