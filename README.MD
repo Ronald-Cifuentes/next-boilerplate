@@ -6,8 +6,8 @@ Nextjs Boilerplate is a template that comes with the necessary preconfiguration 
 |[<img width=190 src=https://cdn.rawgit.com/standard/standard/master/docs/logos/nodejs.png>](https://nodejs.org)|[<img width=190 src=https://cdn.rawgit.com/standard/standard/master/docs/logos/npm.png>](https://www.npmjs.com)|[<img width=190 src=https://user-images.githubusercontent.com/106139113/204472746-9231d0ff-40db-49a6-bf3b-f759ff206231.svg>](https://nextjs.org/)|[<img width=190 src=https://user-images.githubusercontent.com/106139113/204473760-13746fa1-c52e-4fda-ab41-ff3f8ec3e9db.svg>](https://reactjs.org/)
 |---|---|---|---|
 
-|[<img width=190 src=https://user-images.githubusercontent.com/59535805/206945924-1cbf791a-2cfe-4ce0-af0f-3c8412d8cdd2.svg>](https://www.npmjs.com/package/license)|[<img width=190 src=https://user-images.githubusercontent.com/59535805/206946221-8cc5b214-4605-4e39-a1ca-eeaa36833abf.svg>](https://prettier.io/)|[<img width=190 src=https://user-images.githubusercontent.com/59535805/206931257-724a9801-906e-4009-82bf-d6a63f349298.svg>](https://eslint.org/)
-|---|---|---|
+|[<img width=190 src=https://user-images.githubusercontent.com/59535805/206945924-1cbf791a-2cfe-4ce0-af0f-3c8412d8cdd2.svg>](https://www.npmjs.com/package/license)|[<img width=190 src=https://user-images.githubusercontent.com/59535805/206946221-8cc5b214-4605-4e39-a1ca-eeaa36833abf.svg>](https://prettier.io/)|[<img width=190 src=https://user-images.githubusercontent.com/59535805/206931257-724a9801-906e-4009-82bf-d6a63f349298.svg>](https://eslint.org/)|[<img width=190 src=https://user-images.githubusercontent.com/59535805/206952616-2b759e75-c92a-49ac-8a02-c9a5c42672f9.svg>](https://www.typescriptlang.org/)
+|---|---|---|---|
 
 ## How was this project created?
 
@@ -131,4 +131,24 @@ Add or replace in the .eslintrc file the following configuration
         "version": "detect"
     }
 }
+```
+
+### 8. Ajust Typescript
+run this command to update typescript
+```bash
+yarn add -D typescript
+```
+Add this config in .eslintrc
+```json
+  "parserOptions": {
+    "project": ["./tsconfig.json"]
+  }
+```
+Add or replace in tsconfig.json
+```json
+  "target": "ES2021"
+  "lib": ["ES2021"]
+  "strict": true
+  "isolatedModules": true,
+  "strictNullChecks": true
 ```
