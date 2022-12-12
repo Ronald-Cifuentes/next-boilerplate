@@ -15,6 +15,7 @@ const customJestConfig = {
   ],
   collectCoverage: true,
   coverageReporters: ['lcov', 'text-summary'],
+  testResultsProcessor: 'jest-sonar-reporter',
 };
 
 module.exports = createJestCofig(customJestConfig);
