@@ -9,6 +9,9 @@ Nextjs Boilerplate is a template that comes with the necessary preconfiguration 
 |[<img width=190 src=https://user-images.githubusercontent.com/59535805/206945924-1cbf791a-2cfe-4ce0-af0f-3c8412d8cdd2.svg>](https://www.npmjs.com/package/license)|[<img width=190 src=https://user-images.githubusercontent.com/59535805/206946221-8cc5b214-4605-4e39-a1ca-eeaa36833abf.svg>](https://prettier.io/)|[<img width=190 src=https://user-images.githubusercontent.com/59535805/206931257-724a9801-906e-4009-82bf-d6a63f349298.svg>](https://eslint.org/)|[<img width=190 src=https://user-images.githubusercontent.com/59535805/206952616-2b759e75-c92a-49ac-8a02-c9a5c42672f9.svg>](https://www.typescriptlang.org/)
 |---|---|---|---|
 
+|[<img width=190 src=https://user-images.githubusercontent.com/59535805/206962097-3e2203a1-a00f-4db1-9eae-b0cab850146c.svg>](https://jestjs.io/)|[<img width=190 src=https://user-images.githubusercontent.com/59535805/206964935-1fe8db08-4ffb-492b-adf4-4730acd031d5.svg>](https://testing-library.com/)
+|---|---|
+
 ## How was this project created?
 
 ### 1. Add Git
@@ -152,3 +155,52 @@ Add or replace in tsconfig.json
   "isolatedModules": true,
   "strictNullChecks": true
 ```
+
+### 9. Add testing with Jest and RTL (React Testing Library)
+```bash
+yarn add jest
+npm pkg set scripts.test="jest"
+yarn test --init
+```
+```bash
+- Would you like to use Typescript for the configuration file? › yes
+- Choose the test environment that will be used for testing › node
+- Do you want Jest to add coverage reports? yes
+- Which provider should be used to instrument code for coverage? › babel
+- Automatically clear mock calls, instances, contexts and results before every test? › yes
+```
+Run this commmad to add all the necessary dependecies
+```bash
+yarn add -D @testing-library/react @testing-library/jest-dom @testing-library/user-event identity-obj-proxy ts-node typescript jest-environment-jsdom eslint eslint-plugin-jest @types/jest
+```
+Add to jest.config.ts
+```ts
+import nextJest from 'next/jest'
+
+const createJestCofig = nextJest({dir: '.'})
+
+const customJestConfig = {
+  testEnvironment: 'jsdom',
+  clearMocks: true,
+  moduleDirectories: ['node_modules', 'src'],
+  setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
+  coverageDirectory: 'coverage',
+  testPathIgnorePatterns: [],
+  collectCoverageFrom: [
+    '<rootDir>/pages/**/*.(tsx|ts)',
+    '!<rootDir>/pages/**/*.test.(tsx|ts)'
+  ],
+  collectCoverage: true,
+  coverageReporters: ['lcov', 'text-summary']
+}
+
+module.exports = createJestCofig(customJestConfig)
+```
+Create file and add to setupTests.ts this import
+```bash
+echo {}> setupTests.ts
+```
+```js
+import '@testing-library/jest-dom/extend-expect';
+```
+
