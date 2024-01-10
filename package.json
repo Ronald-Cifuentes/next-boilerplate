@@ -13,7 +13,9 @@
     "lint": "next lint",
     "commit": "npx gitmoji-cli -c",
     "gen": "npx generate-react-cli c",
-    "cov": "npm run test \"$src\" -- --coverage --collectCoverageFrom=\"$(echo $src | sed 's/.spec//')\""
+    "unit:cov": "npm run test \"$src\" -- --coverage --collectCoverageFrom=\"$(echo $src | sed 's/.spec//')\"",
+    "prepare": "husky install",
+    "ts-check": "tsc --noEmit --skipLibCheck"
   },
   "keywords": [],
   "author": "",
@@ -34,6 +36,7 @@
     "@types/node": "20.10.6",
     "@types/react": "18.2.46",
     "@typescript-eslint/eslint-plugin": "6.17.0",
+    "commitlint-config-gitmoji": "2.3.1",
     "eslint": "8.56.0",
     "eslint-config-next": "14.0.4",
     "eslint-config-prettier": "9.1.0",
@@ -43,6 +46,7 @@
     "eslint-plugin-n": "16.6.1",
     "eslint-plugin-promise": "6.1.1",
     "eslint-plugin-react": "7.33.2",
+    "husky": "8.0.3",
     "identity-obj-proxy": "3.0.0",
     "jest-environment-jsdom": "29.7.0",
     "jest-sonar-reporter": "2.0.0",

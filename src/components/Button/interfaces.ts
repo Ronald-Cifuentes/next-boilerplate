@@ -1,3 +1,3 @@
 export type ButtonProps = Partial<{
-  dataTestId?: string
-}>
+  dataTestId: string;
+}>;

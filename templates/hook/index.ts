@@ -1,2 +1,2 @@
-export * from './useTemplateName'
-export * from './interfaces'
+export * from './useTemplateName';
+export * from './interfaces';
