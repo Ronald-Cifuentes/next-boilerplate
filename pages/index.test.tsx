@@ -1,5 +1,5 @@
 import {cleanup, fireEvent, render, screen} from '@testing-library/react';
-import Index from './';
+import Index from '.';
 
 describe('<Index />', () => {
   beforeEach(cleanup);
@@ -10,10 +10,10 @@ describe('<Index />', () => {
     expect(ind).toBeInTheDocument();
   });
 
-  test('#2. exist - render correctly', () => {
+  test('#2. click btn', () => {
     console.log = jest.fn();
     render(<Index />);
-    const btn = screen.getByText('Testx');
+    const btn = screen.getByText('TestX');
     fireEvent.click(btn);
     expect(console.log).toHaveBeenCalledWith('TestXXX');
   });

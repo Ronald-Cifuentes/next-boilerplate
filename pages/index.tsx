@@ -10,10 +10,9 @@ const Index: FC<IndexProps> = ({dataTestId = 'index-test'}) => {
   };
 
   return (
-    <>
-      <div data-testid={dataTestId} />
+    <div data-testid={dataTestId}>
       <button onClick={handleButton}>TestX</button>
-    </>
+    </div>
   );
 };
 
