@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {type FC} from 'react';
 
 export interface IndexProps {
   dataTestId?: string;
@@ -12,7 +12,7 @@ const Index: FC<IndexProps> = ({dataTestId = 'index-test'}) => {
   return (
     <>
       <div data-testid={dataTestId} />
-      <button onClick={handleButton}>Testx</button>
+      <button onClick={handleButton}>TestX</button>
     </>
   );
 };
