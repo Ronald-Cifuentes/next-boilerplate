@@ -1,17 +1,17 @@
 import nextJest from 'next/jest';
 
-const createJestCofig = nextJest({dir: '.'});
+const createJestConfig = nextJest({dir: './'});
 
 const IgnorePatterns = [
-  '/node_modules/',
+  '<rootDir>/node_modules/',
   '<rootDir>/templates/',
   '<rootDir>/.next'
 ];
 
 const customJestConfig = {
-  verbose: true,
+  verbose: false,
   preset: 'ts-jest',
-  testEnvironment: 'jsdom',
+  testEnvironment: 'jest-environment-jsdom',
   collectCoverage: true,
   transformIgnorePatterns: IgnorePatterns,
   testPathIgnorePatterns: IgnorePatterns,
@@ -35,8 +35,7 @@ const customJestConfig = {
       'jest-transform-stub'
   },
   moduleNameMapper: {
-    '^.+.(svg|css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$':
-      'jest-transform-stub'
+    '^@/(.*)$': '<rootDir>/$1'
   },
   testRegex: '(/_tests_/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
@@ -48,4 +47,4 @@ const customJestConfig = {
   modulePathIgnorePatterns: ['builds', 'node_modules']
 };
 
-module.exports = createJestCofig(customJestConfig);
+module.exports = createJestConfig(customJestConfig);
